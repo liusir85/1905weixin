@@ -22,6 +22,7 @@ class LoginController extends Controller
             'email'=>$email,
         ];
 
+        // aaaaa
         $uid=UserModel::insertGetId($data);
         var_dump($uid);
     }
