@@ -17,4 +17,6 @@ Route::get('/', function () {
 Route::get('/bbb','Test\TestController@test');
 Route::get('/user/login','User\LoginController@addUser');
 
+//微信开发
 Route::get('/wx','Weixin\WxController@wechat');
+Route::post('/wx','Weixin\WxController@receiv'); //接收微信的推送事件

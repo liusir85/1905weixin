@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 class LoginController extends Controller
 {
+
+    //处理接入
     public function addUser(){
         $pass='123';
         $email='893518673@qq.com';
