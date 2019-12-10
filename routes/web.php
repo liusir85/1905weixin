@@ -17,3 +17,4 @@ Route::get('/', function () {
 Route::get('/bbb','Test\TestController@test');
 Route::get('/user/login','User\LoginController@addUser');
 
+Route::get('/wx','Weixin\WxController@wechat');
