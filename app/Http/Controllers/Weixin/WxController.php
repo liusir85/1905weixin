@@ -72,13 +72,13 @@ class WxController extends Controller{
         $fromuser=$xml_obj->ToUserName;  //开发者公众号的id
         $time=time();
 
-        if($msg_type=='file'){
+        if($msg_type=='text'){
             $content=date('Y-m-d H:i:s').$xml_obj->Content;
             $response_text='<xml>
           <ToUserName><![CDATA['.$touser.']]></ToUserName>
           <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
           <CreateTime>'.$time.'</CreateTime>
-          <MsgType><![CDATA[file]]></MsgType>
+          <MsgType><![CDATA[text]]></MsgType>
           <Content><![CDATA['.$content.']]></Content>
         </xml>';
                     echo $response_text;//回复用户消息
