@@ -84,6 +84,7 @@ class WxController extends Controller{
                 $url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$this->access_token.'&openid='.$openid.'&lang=zh_CN';
                 $user_info = file_get_contents($url);       //
                 $u = json_decode($user_info,true);
+
                 //echo '<pre>';print_r($u);echo '</pre>';die;
                 //入库用户信息
                 $user_data = [
