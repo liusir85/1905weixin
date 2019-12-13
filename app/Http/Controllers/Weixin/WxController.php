@@ -145,8 +145,7 @@ class WxController extends Controller{
     //获取素材
     public function getMedia(){
         $media_id='';
-        $url='https://api.weixin.qq.com/cgi-bin/media/get?access_token='.$this->access_token.'&media_id='.$media_id.';
+        $url='https://api.weixin.qq.com/cgi-bin/media/get?access_token='.$this->access_token.'&media_id='.$media_id;
+        echo $url;
     }
 }
-
-
