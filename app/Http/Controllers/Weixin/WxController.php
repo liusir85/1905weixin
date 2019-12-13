@@ -10,7 +10,7 @@ class WxController extends Controller{
 
     protected $access_token;
 
-    public function _construct(){
+    public function __construct(){
         //获取access_token
         $this->access_token=$this->getAccessToken();
     }
@@ -85,7 +85,7 @@ class WxController extends Controller{
                 $user_info = file_get_contents($url);       //
                 $u = json_decode($user_info,true);
 
-                //echo '<pre>';print_r($u);echo '</pre>';die;
+//                echo '<pre>';print_r($url);echo '</pre>';die;
                 //入库用户信息
                 $user_data = [
                     'openid'    => $openid,
@@ -139,6 +139,13 @@ class WxController extends Controller{
         $json_str=file_get_contents($url);
         $log_file = 'wx_user.log';
         file_put_contents($log_file,$json_str,FILE_APPEND);
+    }
+
+
+    //获取素材
+    public function getMedia(){
+        $media_id='';
+        $url='https://api.weixin.qq.com/cgi-bin/media/get?access_token='.$this->access_token.'&media_id='.$media_id.';
     }
 }
 
