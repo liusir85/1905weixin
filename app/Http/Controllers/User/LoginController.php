@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Model\UserModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Redis;
 class LoginController extends Controller
 {
 
@@ -28,4 +29,17 @@ class LoginController extends Controller
         $uid=UserModel::insertGetId($data);
         var_dump($uid);
     }
+
+    public function info(){
+        phpinfo();
+    }
+
+
+    public function redis1(){
+        $key='1905';
+        $val='Hi';
+        Redis::set($key,$val);
+    }
+
+
 }
