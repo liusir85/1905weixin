@@ -83,7 +83,7 @@ class WxController extends Controller{
 
             if($u){
 //                echo "欢迎欢迎";die;
-            $msg='欢迎回来哟';
+                $msg='欢迎回来哟';
                 $xml='<xml>
                   <ToUserName><![CDATA['.$openid.']]></ToUserName>
                   <FromUserName><![CDATA['.$xml_obj->ToUserName.']]></FromUserName>
@@ -144,7 +144,7 @@ class WxController extends Controller{
           <MsgType><![CDATA[text]]></MsgType>
           <Content><![CDATA['.$content.']]></Content>
         </xml>';
-                    echo $response_text;//回复用户消息
+            echo $response_text;//回复用户消息
 
             //todo 消息入库
 //            模型名::create([
@@ -156,7 +156,7 @@ class WxController extends Controller{
             //todo 下载图片
             $this->getMedia2($media_id,$msg_type);
             //todo 回复图片
-                        $response = '<xml>
+            $response = '<xml>
               <ToUserName><![CDATA['.$touser.']]></ToUserName>
               <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
               <CreateTime>'.time().'</CreateTime>
@@ -165,7 +165,7 @@ class WxController extends Controller{
                 <MediaId><![CDATA['.$media_id.']]></MediaId>
               </Image>
             </xml>';
-                        echo $response;
+            echo $response;
 
         }elseif($msg_type=='voice'){      //语音消息
 //            dd($xml_obj);
@@ -173,7 +173,7 @@ class WxController extends Controller{
             $this->getMedia2($media_id,$msg_type);
 //            dd($media_id);
             //todo 回复语音
-                        $response = '<xml>
+            $response = '<xml>
               <ToUserName><![CDATA['.$touser.']]></ToUserName>
               <FromUserName><![CDATA['.$fromuser.']]></FromUserName>
               <CreateTime>'.time().'</CreateTime>
@@ -182,12 +182,12 @@ class WxController extends Controller{
                 <MediaId><![CDATA['.$media_id.']]></MediaId>
               </Voice>
             </xml>';
-                        echo $response;
+            echo $response;
         }
     }
 
 
-     //获取用户的基本信息
+    //获取用户的基本信息
     public function getUserInfo($access_token,$openid){
         $url="https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token.'&openid='.$openid.'&lang=zh_CN";
         //发送网络请求
@@ -243,8 +243,8 @@ class WxController extends Controller{
             $file_name=date('YmdHis').mt_rand(11111,99999).$extension;
             $save_path=$save_path . 'imgs/' . $file_name;
         }elseif($media_type=='voice'){   ///保存语音文件
-              $file_name=date('YmdHis').mt_rand(11111,99999). $extension;
-              $save_path=$save_path . 'voice/' . $file_name;
+            $file_name=date('YmdHis').mt_rand(11111,99999). $extension;
+            $save_path=$save_path . 'voice/' . $file_name;
         }
 
         file_put_contents($save_path,$file_content);
@@ -262,6 +262,7 @@ class WxController extends Controller{
         Redis::del($key);
         echo $this->getAccessToken();
     }
+
 
 }
 
