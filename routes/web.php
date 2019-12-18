@@ -32,8 +32,8 @@ Route::get('/wx/test','Weixin\WxController@test');
 Route::get('/wx','Weixin\WxController@wechat');
 Route::post('/wx','Weixin\WxController@receiv'); //接收微信的推送事件
 Route::get('/wx/media','Weixin\WxController@getMedia');//获取临时素材
-Route::get('/wx/flush/access_token','WeiXin\WxController@flushAccessToken');        //刷新access_token
-
+Route::get('/wx/flush/access_token','Weixin\WxController@flushAccessToken');        //刷新access_token
+Route::get('/wx/menu','Weixin\WxController@createMenu');    //创建菜单
 
 
 

@@ -12,3 +12,5 @@ npm-debug.log
 .idea/
 yarn-error.log
 public/*.log
+/public/wx_media
+
