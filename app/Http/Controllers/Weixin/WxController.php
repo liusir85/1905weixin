@@ -287,6 +287,9 @@ class WxController extends Controller{
 
     //创建自定义字段
     public function createMenu(){
+        $url='http://1905liuqingyuan.comcto.com/vote';
+        $redirect_uri=urlencode($url);   //授权后跳转页面
+
         //创建字定义菜单的接口地址
         $url = 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token='.$this->access_token;
         $menu = [
@@ -295,6 +298,11 @@ class WxController extends Controller{
                     'type'=>'click',
                     'name'=>'获取天气',
                     'key' =>'weather'
+                ],
+                [
+                    'type'=>'view',
+                    'name'=>'投票',
+                    'url' =>'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0079197aeab14faf&redirect_uri='.$redirect_uri.'&response_type=code&scope=snsapi_userinfo&state=ABCD1905#wechat_redirect'
                 ],
             ]
          ];
