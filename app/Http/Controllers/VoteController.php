@@ -7,6 +7,14 @@ use Illuminate\Support\Facades\Redis;
 
 class VoteController extends Controller
 {
+    //测试使用,线上禁用
+    public function delKey(){
+        $key=$_GET['k'];
+        echo 'Delete Key:'.$key;echo '<br>';
+        Redis::del($key);
+    }
+
+
     public function index(){
 //        echo '<pre>';print_r($_GET);echo'</pre>';die;
 
@@ -16,6 +24,10 @@ class VoteController extends Controller
         $data=$this->getAccessToken($code);
         //获取用户信息
         $user_info=$this->getUserInfo($data['access_token'],$data['openid']);
+
+        //保存用户信息
+        $userinfo_key='h:u'.$data['openid'];
+        Redis::hMset($userinfo_key,$user_info);
 
         //处理业务逻辑
         //TODO 判断是否已经投过 使用redis 集合 或有序集合
@@ -34,11 +46,14 @@ class VoteController extends Controller
 
 
         $total = Redis::zCard($key);        // 获取总数
-        echo '投票总人数： '.$total;echo '</br>';
+//        echo '投票总人数： '.$total;echo '</br>';
         $members = Redis::zRange($key,0,-1,true);       // 获取所有投票人的openid
 //        echo '<pre>';print_r($members);echo '</pre>';
         foreach($members as $k=>$v){
-            echo "用户： ".$k . ' 投票时间: '. date('Y-m-d H:i:s',$v);echo '</br>';
+//            echo "用户： ".$k . ' 投票时间: '. date('Y-m-d H:i:s',$v);echo '</br>';
+            $u_k='h:u:'.$k;
+            $u=Redis::hgetAll($u_k);
+            echo '<img src="'.$u['headimgurl'].'">';
         }
 
 //        $members=Redis::Smembers($key);   //获取所有投票人的openid
