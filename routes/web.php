@@ -25,7 +25,7 @@ Route::get('/bbb','Test\TestController@test');
 Route::get('/user/login','User\LoginController@addUser');
 Route::get('/info','User\LoginController@info');
 Route::get('/user/redis1','User\LoginController@redis1');
-
+Route::get('/dev/redis/del','VoteController@delKey');
 
 //微信开发
 Route::get('/wx/test','Weixin\WxController@test');
