@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+//Route::get('/', function () {
 //    return view('welcome');
 //    $file_name="abc.mp3";
 //    $info=pathinfo($file_name);
@@ -19,8 +19,15 @@ Route::get('/', function () {
 //    echo $file_name . '的文件扩展名1: ' . pathinfo($file_name)['extension'];die;
 //    echo '<pre>';print_r($info);echo '</pre>';die;
 
-    return view('welcome');
-});
+//    return view('welcome');
+//});
+
+Route::get('/','Index\IndexController@index');    //网站首页
+
+
+
+
+
 Route::get('/bbb','Test\TestController@test');
 Route::get('/user/login','User\LoginController@addUser');
 Route::get('/info','User\LoginController@info');
