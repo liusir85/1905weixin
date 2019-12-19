@@ -26,7 +26,7 @@ class VoteController extends Controller
         $user_info=$this->getUserInfo($data['access_token'],$data['openid']);
 
         //保存用户信息
-        $userinfo_key='h:u'.$data['openid'];
+        $userinfo_key='h:u:'.$data['openid'];
         Redis::hMset($userinfo_key,$user_info);
 
         //处理业务逻辑
