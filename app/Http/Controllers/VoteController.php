@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Redis;
 class VoteController extends Controller
 {
     public function index(){
-//        echo '<pre>';print_r($_GET);echo'</pre>';
+        echo '<pre>';print_r($_GET);echo'</pre>';die;
 
         $code=$_GET['code'];
 
