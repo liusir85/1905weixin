@@ -23,7 +23,7 @@
 //});
 
 Route::get('/','Index\IndexController@index');    //网站首页
-
+Route::get('/goods/detail','Goods\IndexController@detail');
 
 
 

@@ -8,9 +8,10 @@ use App\Model\WxUserModel;
 class IndexController extends Controller
 {
     public function index(){
+//        echo 1;die;
+//      var_dump($_GET);die;
         $code=$_GET['code'];
         $data=$this->getAccessToken($code);
-
         //判断用户是否已存在
         $openid=$data['openid'];
         $u=WxUserModel::where(['openid'=>$openid])->first();

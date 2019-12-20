@@ -32,6 +32,7 @@ class WxUserController extends AdminController
         $grid->column('subscribe_time', __('关注时间'))->display(function($time){
             return date('Y-m-d H:i:s',$time);
         });
+
         $grid->column('headimgurl', __('昵称'))->display(function ($img){
             return '<img src="'.$img.'">';
         });
