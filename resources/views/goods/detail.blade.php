@@ -368,9 +368,10 @@
     <div class= "container">
         <div class="shop-single">
             <img src="/storage/{{$goods->img}}" alt="">
-            <h5>Fashion Men's</h5>
-            <div class="price">$20 <span>$28</span></div>
+            <h5>{{$goods->goods_name}}</h5>
+            <div class="price">${{$goods->price}} <span>${{$goods->price}}</span></div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam eaque in non delectus, error iste veniam commodi mollitia, officia possimus, repellendus maiores doloribus provident. Itaque, ab perferendis nemo tempore! Accusamus</p>
+            {!! $goods->desc !!}
             <button type="button" class="btn button-default">ADD TO CART</button>
         </div>
         <div class="review">
